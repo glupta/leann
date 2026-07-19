@@ -168,7 +168,7 @@ def create_hnsw_embedding_server(
 
         context = zmq.Context()
         rep_socket = context.socket(zmq.REP)
-        rep_socket.bind(f"tcp://*:{zmq_port}")
+        rep_socket.bind(f"tcp://127.0.0.1:{zmq_port}")
         logger.info(f"HNSW ZMQ REP server listening on port {zmq_port}")
         rep_socket.setsockopt(zmq.RCVTIMEO, 1000)
         rep_socket.setsockopt(zmq.SNDTIMEO, 1000)
